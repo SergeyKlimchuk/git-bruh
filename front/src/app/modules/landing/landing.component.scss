@@ -1,0 +1,80 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+.code-snippet {
+    width: 480px;
+}
+
+.spacer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 1280px;
+}
+
+.spacer-first {
+    background-color: #4a90e2;
+    padding: 48px 0;
+}
+
+// Fact impls
+
+.code-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+        font-size: 32px;
+        line-height: 48px;
+        font-weight: bold;
+        // color: #4a90e2;
+        background: -webkit-linear-gradient(-70deg, #fff 0%, #dde 100%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        padding: 16px;
+    }
+}
+
+// .code-section {
+//     display: flex;
+//     flex-direction: column;
+//     padding: 8px;
+//     border-radius: 8px;
+//     background-color: #282c34; // #4A90E2
+//     color: #fff;
+
+    // .title {
+    //     font-size: 32px;
+    //     line-height: 48px;
+    //     font-weight: bold;
+    //     // color: #4a90e2;
+    //     background: -webkit-linear-gradient(-70deg, #4a90e2 0%, #f66 100%);
+    //     background-clip: text;
+    //     -webkit-text-fill-color: transparent;
+    // }
+
+//     .content {
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
+//         .action {
+//             display: flex;
+//             flex-direction: column;
+//             max-width: 140px;
+//             mat-icon {
+//                 font-size: 2em;
+//             }
+//         }
+//     }
+// }

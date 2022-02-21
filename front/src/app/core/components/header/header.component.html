@@ -1,0 +1,32 @@
+<button mat-button routerLink="/">
+    <div class="logo">
+        <mat-icon class="icon" svgIcon="git"></mat-icon>
+        <div class="name">Git bruh</div>
+    </div>
+</button>
+
+<div class="user">
+    <button
+        *ngIf="authenticated$ | async; else signInTemplate"
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+    >
+        <mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/profile">
+            <mat-icon>person</mat-icon>
+            <span>Profile</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Sign out</span>
+        </button>
+    </mat-menu>
+
+    <ng-template #signInTemplate>
+        <button mat-raised-button color="primary" routerLink="/sign-in/auth">
+            Sign in
+        </button>
+    </ng-template>
+</div>

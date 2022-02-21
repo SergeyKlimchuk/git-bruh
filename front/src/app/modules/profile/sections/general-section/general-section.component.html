@@ -1,0 +1,37 @@
+<h1>General info</h1>
+
+<div class="center-wrapper">
+    <div class="container" [formGroup]="form">
+        <mat-form-field>
+            <mat-label>First name</mat-label>
+            <input
+                matInput
+                id="firstName"
+                required
+                formControlName="firstName"
+            />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Last name</mat-label>
+            <input matInput id="lastName" required formControlName="lastName" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Bio</mat-label>
+            <textarea
+                matInput
+                id="bio"
+                required
+                formControlName="bio"
+            ></textarea>
+        </mat-form-field>
+        <div class="actions">
+            <button
+                mat-raised-button
+                color="primary"
+                (click)="updateGeneralInfo()"
+            >
+                Update
+            </button>
+        </div>
+    </div>
+</div>

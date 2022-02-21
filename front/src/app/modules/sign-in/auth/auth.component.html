@@ -1,0 +1,31 @@
+<div [formGroup]="form" class="form mat-elevation-z7">
+    <h1>Log in to continue</h1>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput id="email" required formControlName="email" />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+            matInput
+            id="password"
+            type="password"
+            required
+            formControlName="password"
+        />
+    </mat-form-field>
+    <button
+        mat-raised-button
+        color="primary"
+        class="auth-btn"
+        (click)="signIn()"
+    >
+        Sign in
+    </button>
+</div>
+<div class="info">
+    Don't have an account yet?
+    <span class="inner-link" routerLink="/sign-in/registration"
+        >Register now</span
+    >
+</div>

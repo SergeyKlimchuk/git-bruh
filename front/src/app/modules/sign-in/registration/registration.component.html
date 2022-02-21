@@ -1,0 +1,54 @@
+<div [formGroup]="form" class="form mat-elevation-z7">
+    <h1>Registration</h1>
+    <div class="splited-row">
+        <mat-form-field>
+            <mat-label>First name</mat-label>
+            <input
+                matInput
+                id="firstName"
+                required
+                formControlName="firstName"
+            />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Last name</mat-label>
+            <input matInput id="lastName" required formControlName="lastName" />
+        </mat-form-field>
+    </div>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput id="email" required formControlName="email" />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+            matInput
+            id="password"
+            type="password"
+            required
+            formControlName="password"
+        />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password (confirm) </mat-label>
+        <input
+            matInput
+            id="passwordConfirm"
+            type="password"
+            required
+            formControlName="passwordConfirm"
+        />
+    </mat-form-field>
+    <button
+        mat-raised-button
+        color="primary"
+        class="auth-btn"
+        (click)="register()"
+    >
+        Register
+    </button>
+</div>
+<div class="info">
+    Already have account?
+    <span class="inner-link" routerLink="/sign-in/auth">Sign in</span>
+</div>

@@ -1,0 +1,19 @@
+:host {
+    flex-grow: 1;
+}
+
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 1280px;
+    display: flex;
+    flex-direction: column;
+}
+
+.actions {
+    display: flex;
+    justify-content: end;
+}

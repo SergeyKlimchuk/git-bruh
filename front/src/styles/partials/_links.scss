@@ -1,0 +1,6 @@
+@mixin links($primary) {
+    .inner-link {
+        color: $primary;
+        cursor: pointer;
+    }
+}
