@@ -29,12 +29,4 @@ class IdentityService(val userRepository: UserRepository) {
 
         userRepository.save(user)
     }
-
-    fun getCurrentUser(): User {
-        val principal = SecurityContextHolder.getContext().authentication.principal
-        val usr = (principal as org.springframework.security.core.userdetails.User)
-        val email = usr.username
-        return userRepository.findByEmail(email)
-            ?: throw UserNotFoundException()
-    }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { take, tap } from 'rxjs';
+import { tap } from 'rxjs';
 import { NotificationService } from 'src/app/services/notification.service';
 import { ProfileApiService } from 'src/app/services/profile-api.service';
 import { AppState } from 'src/app/state/app.state';
@@ -25,12 +25,13 @@ export class GeneralSectionComponent {
             lastName: ['', [Validators.required]],
             bio: ['', [Validators.maxLength(250)]],
         });
-        store
-            .select((x) => x.identity.currentUser)
-            .pipe(
-                take(1),
-                tap((x) => this.form.patchValue(x!!))
-            )
+        this.loadGeneralInfo();
+    }
+
+    loadGeneralInfo() {
+        this.profileApiService
+            .getGeneralInfo()
+            .pipe(tap((info) => this.form.patchValue(info)))
             .subscribe();
     }
 

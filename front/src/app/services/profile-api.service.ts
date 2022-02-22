@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UpdateGeneralInfoRequest } from '../models/dto/profile.model';
+import { GeneralInfo } from '../models/dto/profile.model';
 
 @Injectable({
     providedIn: 'root',
@@ -10,7 +10,11 @@ export class ProfileApiService {
 
     constructor(private http: HttpClient) {}
 
-    updateGeneralInfo(request: UpdateGeneralInfoRequest) {
-        return this.http.put<void>(`${this.baseApi}/general`, request);
+    getGeneralInfo() {
+        return this.http.get<GeneralInfo>(`${this.baseApi}/general-info`);
+    }
+
+    updateGeneralInfo(request: GeneralInfo) {
+        return this.http.put<void>(`${this.baseApi}/general-info`, request);
     }
 }

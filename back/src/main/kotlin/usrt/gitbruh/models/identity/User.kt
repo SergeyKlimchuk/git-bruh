@@ -14,6 +14,9 @@ data class User(
         @Column(name = "lastName", nullable = false)
         var lastName: String,
 
+        @Column(name = "bio", nullable = false)
+        var bio: String = "",
+
         @Column(name = "email", nullable = false)
         var email: String,
 
