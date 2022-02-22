@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, EMPTY, map, mergeMap } from 'rxjs';
+import { catchError, EMPTY, map, mergeMap, tap } from 'rxjs';
 import { IdentityApiService } from 'src/app/services/identity-api.service';
 import {
     currentUserLoaded,
@@ -35,6 +36,7 @@ export class IdentityEffects {
             ofType(logIn),
             mergeMap((request) =>
                 this.identityApiService.login(request).pipe(
+                    tap(() => this.router.navigate(['/'])),
                     map(() => loadCurrentUser()),
                     catchError(() => EMPTY)
                 )
@@ -59,6 +61,7 @@ export class IdentityEffects {
             ofType(loadCurrentUser),
             mergeMap(() =>
                 this.identityApiService.getCurrentUser().pipe(
+                    tap(() => this.router.navigate(['/'])),
                     map((currentUser) => currentUserLoaded(currentUser)),
                     catchError(() => EMPTY)
                 )
@@ -68,6 +71,7 @@ export class IdentityEffects {
 
     constructor(
         private actions$: Actions,
-        private identityApiService: IdentityApiService
+        private identityApiService: IdentityApiService,
+        private router: Router
     ) {}
 }
